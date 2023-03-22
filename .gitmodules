@@ -1,3 +1,6 @@
 [submodule "SpaceVim"]
 	path = SpaceVim
 	url = https://github.com/SpaceVim/SpaceVim.git
+[submodule "emacs"]
+	path = emacs
+	url = https://github.com/syl20bnr/spacemacs
