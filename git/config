@@ -1,0 +1,23 @@
+[core]
+    editor = emacsclient
+[user]
+	name = John Maximilian
+	email = 2e0byo@gmail.com
+	signingkey = 52798DA528FA3CCF
+[gpgp]
+	program = gpg2
+[pull]
+	rebase = false
+[github]
+	user = 2e0byo
+[credential]
+	helper = cache
+[gitlab]
+	user = 2e0byo
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[commit]
+	gpgsign = true
