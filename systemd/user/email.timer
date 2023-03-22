@@ -1,0 +1,12 @@
+[Unit]
+Description=Run email.service every 4-5 minutes
+Requires=email.service
+
+[Timer]
+Unit=email.service
+OnUnitInactiveSec=4m
+RandomizedDelaySec=1m
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

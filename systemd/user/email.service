@@ -1,0 +1,9 @@
+[Unit]
+Description=Offlineimap service (replacement)
+Wants=email.timer
+
+[Service]
+ExecStart=/home/john/bin/mail.sh
+TimeoutStopSec=12
+Slice=automation.slice
+ExecStopPost=bash -c '[ $SERVICE_RESULT == "success" ] || notify-send -u critical -t 10000 "Email Failure" "$(cat /tmp/email-fail.msg) $SERVICE_RESULT"'

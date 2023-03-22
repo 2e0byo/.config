@@ -1,0 +1,13 @@
+[Unit]
+Description=Repair lost key-remap after resume from suspend/hibernate
+After=suspend.target
+
+[Service]
+User=john
+Type=oneshot
+ExecStart=/home/john/bin/remap.sh
+TimeoutSec=0
+StandardOutput=syslog
+
+[Install]
+WantedBy=suspend.target

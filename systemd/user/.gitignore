@@ -1,0 +1,7 @@
+/*.wants
+/dbus.service
+/volatile-tmp*
+/watering-log*
+/cctv*
+/make-playlists-permissive*
+/shairport-sync*
