@@ -1,0 +1,36 @@
+/zoom.conf
+/zoomus.conf
+/libreoffice/
+/rockbox.org/
+/user-dirs*
+/vlc/
+/totem/
+/Alex Spataru/
+/Signal/
+/Clementine/
+/Element/
+/Freecad/
+/GIMP/
+/GNU Radio/
+/GeoGebra/
+/MuseScore/
+/Raspberry Pi/
+/Scan Tailor/
+/VirtualBox/
+/FreeCAD/
+/LibreCAD/
+/abiword/
+/backintime
+/QtProject.conf
+/Trolltech.conf
+/fontforge/
+/gh/
+/ghb/
+/eog/
+/knock/
+/beets/
+/configstore/
+/cef_user_data/
+/MusicBrainz/
+/scantailor-advanced/
+*~
