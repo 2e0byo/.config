@@ -37,3 +37,8 @@ end
 set -g theme_color_scheme solarized-dark
 set -g theme_nerd_fonts yes
 starship init fish | source
+
+if [ $SSH_CONNECTION ]
+    export PINENTRY_USER_DATA=USE_CURSES
+    export GPG_TTY=$(tty)
+end
