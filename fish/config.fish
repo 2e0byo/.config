@@ -16,10 +16,6 @@ tryadd ~/.gem/ruby/3.0.0/bin
 
 # terminal, for tmux
 #set -gx TERM xterm-256color
-# set browser
-set BROWSER qutebrowser
-set SURFRAW_browser qutebrowser
-export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
 # for java apps
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
