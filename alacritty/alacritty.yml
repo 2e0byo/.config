@@ -176,8 +176,7 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
-# Colors (Solarized Dark)
+## BEGIN COLORS ##
 colors:
   # Default colors
   primary:
@@ -210,6 +209,7 @@ colors:
     magenta: '#6c71c4' # violet
     cyan:    '#93a1a1' # base1
     white:   '#fdf6e3' # base3
+## END COLORS ##
 #colors:
   # Default colors
   #primary:
