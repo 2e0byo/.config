@@ -38,3 +38,5 @@ if [ $SSH_CONNECTION ]
     export PINENTRY_USER_DATA=USE_CURSES
     export GPG_TTY=$(tty)
 end
+
+eval (dircolors -c ~/.config/dircolors/dircolors)
