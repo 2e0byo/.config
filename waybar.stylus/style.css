@@ -54,6 +54,7 @@ window#waybar.hidden {
 
 #window {
     background: rgba(22,19,32, 0.8);
+    color: rgba(181,232,224, 1);
 }
 
 #workspaces button {
