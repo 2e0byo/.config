@@ -1,10 +1,18 @@
 /* Solarized dark */
-/* css variables aren't supported, so this is the best we can do. */
+
+@define-color primaryContent  #839496;       /* base 0 */
+@define-color secondaryContent #586e75;      /* base 01 */
+@define-color backgroundHighlights #073642;  /* base 02 */
+@define-color background #002b36;            /* base 03 */
 
 window {
     margin: 0px;
-    border: 1px solid #586e75;  /* base 01 */
-    background-color: #002b36;  /* base 03 */
+    border: 1px solid @secondaryContent;
+    background-color: @background;
+}
+
+#text:selected {
+  background-color: @backgroundHighlights;
 }
 
 #input, #inner-box, #outer-box, #text {
@@ -13,16 +21,16 @@ window {
 }
 
 #input {
-    color: #839496;             /* base 0 */
-    background-color: #073642;  /* base 02 */
+    color: @primaryContent;
+    background-color: @backgroundHighlights;
 }
 
 #inner-box {
-    background-color: #002b36;  /* base 03 */
+    background-color: @background;
 }
 
 #outer-box {
-    background-color: #002b36;  /* base 03 */
+    background-color: @background;
 }
 
 #scroll {
@@ -30,9 +38,9 @@ window {
 }
 
 #text {
-    color: #839496;             /* base 0 */
+    color: @primaryContent;
 }
 
 #entry:selected {
-    background-color: #073642;  /* base 02 */
+    background-color: @backgroundHighlights;
 }
