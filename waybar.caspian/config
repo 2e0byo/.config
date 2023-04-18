@@ -1,13 +1,28 @@
 [{
         "layer": "top",
-        "modules-left": ["cpu", "memory", "disk#root", "hyprland/window", "tray"],
+        "modules-left": ["battery", "cpu", "memory", "disk#root", "hyprland/window", "tray"],
         "modules-center": ["wlr/workspaces"],
         "modules-right": ["mpd", "custom/updates", "network","pulseaudio", "clock", "custom/wallpaper"],
+        "battery": {
+            "interval": 60,
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "format-icons": ["", "", "", "", ""],
+            "format-charging": " {capacity}% {icon}",
+            "format-full": " {capacity}% {icon}",
+            "format-plugged": " {capacity}% {icon}",
+            "format": "{capacity}% {icon}",
+            "max-length": 25
+        },
+
         "wlr/workspaces": {
             "disable-scroll": false,
             "on-click": "activate",
             "all-outputs": false
         },
+
         "hyprland/window": {
             "separate-outputs": true
         },
