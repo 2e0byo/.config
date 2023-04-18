@@ -53,6 +53,7 @@
             "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} – {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
             "format-disconnected": "Disconnected ",
             "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+            "max-length": 45,
             "unknown-tag": "N/A",
             "interval": 2,
             "consume-icons": {
