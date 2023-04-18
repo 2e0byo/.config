@@ -2,7 +2,7 @@
         "layer": "top",
         "modules-left": ["battery", "cpu", "memory", "disk#root", "hyprland/window", "tray"],
         "modules-center": ["wlr/workspaces"],
-        "modules-right": ["mpd", "custom/updates", "network","pulseaudio", "clock", "custom/wallpaper"],
+        "modules-right": ["mpd", "custom/updates","backlight", "network","pulseaudio", "clock", "custom/wallpaper"],
         "battery": {
             "interval": 60,
             "states": {
