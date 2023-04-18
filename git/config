@@ -1,5 +1,4 @@
 [core]
-    editor = emacsclient
 [user]
 	name = John Maximilian
 	email = 2e0byo@gmail.com
