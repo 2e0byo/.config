@@ -13,7 +13,7 @@
 }
 
 
-#window, #disk, #workspaces, #network, #pulseaudio, #battery, #backlight, #clock, #memory, #cpu, #tray, #custom-launcher, #idle_inhibitor, #custom-wallpaper, #custom-updates, #custom-media, #mpd{
+#window, #disk, #workspaces, #network, #pulseaudio, #battery, #backlight, #clock, #memory, #cpu, #tray, #custom-launcher, #idle_inhibitor, #custom-wallpaper, #custom-updates, #custom-media, #mpd #custom-mpd {
     margin-left: 5px;
     padding-left: 5px;
     /* margin-right: 10px; */
@@ -28,20 +28,20 @@ window#waybar.hidden {
 }
 
 
-#mpd {
+#mpd, #custom-mpd {
     background: rgba(102,204,153, 0.8);
     color: rgba(42,92,69, 1);
 }
 
-#mpd.disconnected {
+#mpd.disconnected #custom-mpd.disconnected {
     background: rgba(245,60,60, 0.8);
 }
 
-#mpd.stopped {
+#mpd.stopped #custom-mpd.stopped {
     background: rgba(144,177,177, 0.8);
 }
 
-#mpd.paused {
+#mpd.paused #custom-mpd.paused {
     background: rgba(81,163,122, 0.8);
 }
 
@@ -100,6 +100,7 @@ window#waybar.hidden {
 }
 
 #battery {
+    margin-left: 0px;
     color: rgba(22,19,32, 1);
     background: rgba(181,232,224, 0.8);
 }
@@ -168,7 +169,7 @@ window#waybar.hidden {
 }
 
 #idle_inhibitor {
-    margin-right: 8px;
+    /* margin-right: 8px; */
     /* padding-right: 5px; */
     color: rgba(22,19,32, 1);
     background: rgba(242,143,173, 0.8);

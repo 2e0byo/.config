@@ -2,7 +2,10 @@
         "layer": "top",
         "modules-left": ["battery", "cpu", "memory", "disk#root", "hyprland/window", "tray"],
         "modules-center": ["wlr/workspaces"],
-        "modules-right": ["mpd", "custom/updates","backlight", "network","pulseaudio", "clock", "custom/wallpaper"],
+        "modules-right": ["custom/mpd", "custom/updates", "idle_inhibitor","backlight", "pulseaudio", "network", "clock", "custom/wallpaper"],
+        "backlight": {
+            "format": "{}% 󰍹",
+        },
         "battery": {
             "interval": 60,
             "states": {
@@ -14,7 +17,8 @@
             "format-full": " {capacity}% {icon}",
             "format-plugged": " {capacity}% {icon}",
             "format": "{capacity}% {icon}",
-            "max-length": 25
+            "max-length": 25,
+            "on-click": "gnome-power-statistics",
         },
 
         "wlr/workspaces": {
@@ -81,6 +85,19 @@
             "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
         },
 
+        "custom/mpd": {
+            // "min-length": 35,
+            "interval": 0.3,
+            "exec": "music-scroller.sh",
+            "format": "<span font_desc='Source Code Pro'> {} </span>",
+            "escape": true,
+            // "return-type": "json",
+            "on-click": "mpc toggle",
+            "on-scroll-up": "mpc prev",
+            "on-scroll-down": "mpc next",
+            "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
+        },
+
         "pulseaudio": {
             "scroll-step": 1, // %, can be a float
             "format": "{volume}% {icon} {format_source}",
@@ -107,7 +124,7 @@
         },
 
         "clock": {
-            "format": "{: %H:%M  %Y-%m-%d}"
+            "format": "{:%H:%M  %Y-%m-%d }"
         },
 
         "custom/wallpaper": {
@@ -160,7 +177,7 @@
 
 
         "custom/updates": {
-            "format": "{} Update(s)",
+            "format": "{} ",
             "exec": "checkupdates | wc -l",
             "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
             "interval": 15,
