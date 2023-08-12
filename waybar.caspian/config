@@ -2,7 +2,7 @@
         "layer": "top",
         "modules-left": ["battery", "cpu", "memory", "disk#root", "hyprland/window", "tray"],
         "modules-center": ["wlr/workspaces"],
-        "modules-right": ["custom/mpd", "custom/updates", "idle_inhibitor","backlight", "pulseaudio", "network", "clock", "custom/wallpaper"],
+        "modules-right": ["custom/mpd", "custom/updates", "custom/oncall","idle_inhibitor","backlight", "pulseaudio", "network", "clock", "custom/wallpaper"],
         "backlight": {
             "format": "{}% 󰍹",
         },
@@ -189,7 +189,20 @@
             "format-icons": {
                 "activated": "",
                 "deactivated": ""
-            }
+                }
         },
+        "custom/oncall": {
+          "return-type": "json",
+          "format": "{icon}",
+          "format-icons": {
+          "sanitised": "󰏲",
+          "off": "󰷯"
+          },
+          "on-click": "oncall.py toggle",
+          "exec": "oncall.py state",
+          "exec-on-event": true,
+          "interval": 15,
+          "signal": 8,
+        }
     }
 ]
