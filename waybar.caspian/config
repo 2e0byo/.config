@@ -1,195 +1,225 @@
 [{
-        "layer": "top",
-        "modules-left": ["battery", "cpu", "memory", "disk#root", "hyprland/window", "tray"],
-        "modules-center": ["wlr/workspaces"],
-        "modules-right": ["custom/mpd", "custom/updates", "idle_inhibitor","backlight", "pulseaudio", "network", "clock", "custom/wallpaper"],
-        "backlight": {
-            "format": "{}% 󰍹",
-        },
-        "battery": {
-            "interval": 60,
-            "states": {
-                "warning": 30,
-                "critical": 15
-            },
-            "format-icons": ["", "", "", "", ""],
-            "format-charging": " {capacity}% {icon}",
-            "format-full": " {capacity}% {icon}",
-            "format-plugged": " {capacity}% {icon}",
-            "format": "{capacity}% {icon}",
-            "max-length": 25,
-            "on-click": "gnome-power-statistics",
-        },
+    "layer": "top",
+    "modules-left": ["battery", "cpu", "memory", "disk#root", "hyprland/window", "tray"],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right": [
+        "custom/mpd",
+        "custom/updates",
+        "custom/oncall",
+        "custom/idleinhibit",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "clock",
+        "custom/wallpaper"
+    ],
 
-        "wlr/workspaces": {
-            "disable-scroll": false,
-            "on-click": "activate",
-            "all-outputs": false
+    "backlight": {
+        "format": "{}% 󰍹"
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
         },
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": " {capacity}% {icon}",
+        "format-full": " {capacity}% {icon}",
+        "format-plugged": " {capacity}% {icon}",
+        "format": "{capacity}% {icon}",
+        "max-length": 25,
+        "on-click": "gnome-power-statistics"
+    },
 
-        "hyprland/window": {
-            "separate-outputs": true
-        },
+    "wlr/workspaces": {
+        "disable-scroll": false,
+        "on-click": "activate",
+        "all-outputs": false
+    },
 
-        "cpu": {
-            "interval": 15,
-            "format": " {load:4} {usage:3}%",
-            "max-length": 10
-        },
+    "hyprland/window": {
+        "separate-outputs": true
+    },
 
-        "memory": {
-            "interval": 30,
-            "format": " {:3}%",
-            "max-length": 10
-        },
+    "cpu": {
+        "interval": 15,
+        "format": " {load:4} {usage:3}%",
+        "max-length": 10
+    },
 
-        "disk#root": {
-            "format": "󰋊 {percentage_used}%",
-            "path": "/"
-        },
+    "memory": {
+        "interval": 30,
+        "format": " {:3}%",
+        "max-length": 10
+    },
 
-        "disk#home": {
-            "format": "󱂵 {percentage_used}%",
-            "path": "/home"
-        },
+    "disk#root": {
+        "format": "󰋊 {percentage_used}%",
+        "path": "/"
+    },
 
-        "mpd": {
-            "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} – {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
-            "format-disconnected": "Disconnected ",
-            "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-            "max-length": 45,
-            "unknown-tag": "N/A",
-            "interval": 2,
-            "consume-icons": {
-                "on": " "
-            },
-            "random-icons": {
-                "on": "<span color=\"#f53c3c\"></span> ",
-                "off": " "
-            },
-            "repeat-icons": {
-                "on": " "
-            },
-            "single-icons": {
-                "on": "1 "
-            },
-            "state-icons": {
-                "paused": "",
-                "playing": ""
-            },
-            "tooltip-format": "MPD (connected)",
-            "tooltip-format-disconnected": "MPD (disconnected)",
-            "on-click": "mpc toggle",
-            "on-scroll-up": "mpc prev",
-            "on-scroll-down": "mpc next",
-            "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
-        },
+    "disk#home": {
+        "format": "󱂵 {percentage_used}%",
+        "path": "/home"
+    },
 
-        "custom/mpd": {
-            // "min-length": 35,
-            "interval": 0.3,
-            "exec": "music-scroller.sh",
-            "format": "<span font_desc='Source Code Pro'> {} </span>",
-            "escape": true,
-            // "return-type": "json",
-            "on-click": "mpc toggle",
-            "on-scroll-up": "mpc prev",
-            "on-scroll-down": "mpc next",
-            "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} – {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "max-length": 45,
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
         },
+        "random-icons": {
+            "on": "<span color=\"#f53c3c\"></span> ",
+            "off": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "mpc toggle",
+        "on-scroll-up": "mpc prev",
+        "on-scroll-down": "mpc next",
+        "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
+    },
 
-        "pulseaudio": {
-            "scroll-step": 1, // %, can be a float
-            "format": "{volume}% {icon} {format_source}",
-            "format-bluetooth": "{volume}% {icon} {format_source}",
-            "format-bluetooth-muted": " {icon} {format_source}",
-            "format-muted": " {format_source}",
-            "format-source": "{volume}% ",
-            "format-source-muted": "",
-            "format-icons": {
-                "headphone": "",
-                "hands-free": "",
-                "headset": "",
-                "phone": "",
-                "portable": "",
-                "car": "",
-                "default": ["", "", ""]
-            },
-            "on-click": "pavucontrol"
-        },
-        "custom/launcher": {
-            "format": " ",
-            "on-click": "wofi --show drun",
-            "on-click-right": "killall rofi"
-        },
+    "custom/mpd": {
+        // "min-length": 35,
+        "interval": 0.3,
+        "exec": "music-scroller.sh",
+        "format": "<span font_desc='Source Code Pro'> {} </span>",
+        "escape": true,
+        // "return-type": "json",
+        "on-click": "mpc toggle",
+        "on-scroll-up": "mpc prev",
+        "on-scroll-down": "mpc next",
+        "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
+    },
 
-        "clock": {
-            "format": "{:%H:%M  %Y-%m-%d }"
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
         },
+        "on-click": "pavucontrol"
+    },
+    "custom/launcher": {
+        "format": " ",
+        "on-click": "wofi --show drun",
+        "on-click-right": "killall wofi"
+    },
 
-        "custom/wallpaper": {
-            "format": " ",
-            "on-click": "random_wallpaper.py"
-        },
-        "wlr/workspaces": {
-            "disable-scroll": false,
-            "on-click": "activate",
-            "all-outputs": false
-        },
-        "hyprland/window": {
-            "separate-outputs": true
-        },
+    "clock": {
+        "format": "{:%H:%M  %Y-%m-%d }"
+    },
 
-        "cpu": {
-            "interval": 15,
-            "format": " {load:4} {usage:3}%",
-            "max-length": 10
-        },
+    "custom/wallpaper": {
+        "format": " ",
+        "on-click": "random_wallpaper.py"
+    },
+    "wlr/workspaces": {
+        "disable-scroll": false,
+        "on-click": "activate",
+        "all-outputs": false
+    },
+    "hyprland/window": {
+        "separate-outputs": true
+    },
 
-        "memory": {
-            "interval": 30,
-            "format": " {:3}%",
-            "max-length": 10
-        },
+    "cpu": {
+        "interval": 15,
+        "format": " {load:4} {usage:3}%",
+        "max-length": 10
+    },
 
-        "disk#backup": {
-            "format": "󰪺 {percentage_used}%",
-            "path": "/mnt/backup"
-        },
+    "memory": {
+        "interval": 30,
+        "format": " {:3}%",
+        "max-length": 10
+    },
 
-        "disk#data": {
-            "format": "󰆼 {percentage_used}%",
-            "path": "/mnt/data"
-        },
+    "disk#backup": {
+        "format": "󰪺 {percentage_used}%",
+        "path": "/mnt/backup"
+    },
 
-        "network": {
-            "format-wifi": "{essid} ({signalStrength}%) ",
-            "format-ethernet": "{ipaddr}/{cidr} ",
-            "tooltip-format": "{ifname} via {gwaddr} ",
-            "format-linked": "{ifname} (No IP) ",
-            "format-disconnected": "Disconnected ⚠",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}"
-        },
+    "disk#data": {
+        "format": "󰆼 {percentage_used}%",
+        "path": "/mnt/data"
+    },
 
-        "tray": {
-            "icon-size": 18,
-        },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "tray": {
+        "icon-size": 18,
+    },
 
 
-        "custom/updates": {
-            "format": "{} ",
-            "exec": "checkupdates | wc -l",
-            "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-            "interval": 15,
-            "on-click": "alacritty -e update-or-pause.sh"
-        },
+    "custom/updates": {
+        "format": "{} ",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "alacritty -e update-or-pause.sh"
+    },
 
-        "idle_inhibitor": {
-            "format": "{icon}",
-            "format-icons": {
-                "activated": "",
-                "deactivated": ""
-            }
+    "custom/idleinhibit": {
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "on": "",
+            "off": ""
         },
+        "on-click": "idle_inhibit.py toggle",
+        "exec": "idle_inhibit.py state",
+        "exec-on-event": false,
+        "interval": "once",
+        "signal": 9,
+    },
+
+    "custom/oncall": {
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "sanitised": "󰏲",
+            "off": "󰷯"
+        },
+        "on-click": "oncall.py toggle",
+        "exec": "oncall.py state",
+        "exec-on-event": false,
+        "interval": "once",
+        "signal": 8,
     }
-]
+}]
