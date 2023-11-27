@@ -1,0 +1,206 @@
+[{
+        "layer": "top",
+        "output": "DP-3",
+        "modules-left": ["custom/launcher", "cpu", "memory", "disk#root", "disk#home", "hyprland/window"],
+        "modules-center": ["wlr/workspaces"],
+        "modules-right": ["custom/mpd", "pulseaudio", "clock", "custom/wallpaper"],
+        "wlr/workspaces": {
+            "disable-scroll": false,
+            "on-click": "activate",
+            "all-outputs": false
+        },
+        "hyprland/window": {
+            "separate-outputs": true
+        },
+
+        "cpu": {
+            "interval": 15,
+            "format": " {load:4} {usage:3}%",
+            "max-length": 10
+        },
+
+        "memory": {
+            "interval": 30,
+            "format": " {:3}%",
+            "max-length": 10
+        },
+
+        "disk#root": {
+            "format": "󰋊 {percentage_used}%",
+            "path": "/"
+        },
+
+        "disk#home": {
+            "format": "󱂵 {percentage_used}%",
+            "path": "/home"
+        },
+
+    "custom/mpd": {
+        // "min-length": 35,
+        "interval": 0.3,
+        "exec": "music-scroller.sh",
+        "format": "<span font_desc='Source Code Pro'> {} </span>",
+        "escape": true,
+        // "return-type": "json",
+        "on-click": "mpc toggle",
+        "on-scroll-up": "mpc prev",
+        "on-scroll-down": "mpc next",
+        "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
+    },
+
+        "mpd": {
+            "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} – {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+            "format-disconnected": "Disconnected ",
+            "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+            "unknown-tag": "N/A",
+            "interval": 2,
+            "consume-icons": {
+                "on": " "
+            },
+            "random-icons": {
+                "on": "<span color=\"#f53c3c\"></span> ",
+                "off": " "
+            },
+            "repeat-icons": {
+                "on": " "
+            },
+            "single-icons": {
+                "on": "1 "
+            },
+            "state-icons": {
+                "paused": "",
+                "playing": ""
+            },
+            "tooltip-format": "MPD (connected)",
+            "tooltip-format-disconnected": "MPD (disconnected)",
+            "on-click": "mpc toggle",
+            "on-scroll-up": "mpc prev",
+            "on-scroll-down": "mpc next",
+            "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
+        },
+
+        "pulseaudio": {
+            "scroll-step": 1, // %, can be a float
+            "format": "{volume}% {icon} {format_source}",
+            "format-bluetooth": "{volume}% {icon} {format_source}",
+            "format-bluetooth-muted": " {icon} {format_source}",
+            "format-muted": " {format_source}",
+            "format-source": "{volume}% ",
+            "format-source-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol"
+        },
+        "custom/launcher": {
+            "format": " ",
+            "on-click": "wofi --show drun",
+            "on-click-right": "killall rofi"
+        },
+
+        "clock": {
+            "format": "{: %H:%M  %Y-%m-%d}"
+        },
+
+        "custom/wallpaper": {
+            "format": " ",
+            "on-click": "random_wallpaper.py"
+        },
+    },
+    {
+        "layer": "top",
+        "output": "DP-4",
+        "modules-left": ["cpu", "memory", "disk#backup", "disk#data", "hyprland/window", "tray"],
+        "modules-center": ["wlr/workspaces"],
+        "modules-right": ["custom/updates", "network", "clock", "custom/oncall", "custom/idleinhibit"],
+        "wlr/workspaces": {
+            "disable-scroll": false,
+            "on-click": "activate",
+            "all-outputs": false
+        },
+        "hyprland/window": {
+            "separate-outputs": true
+        },
+
+        "cpu": {
+            "interval": 15,
+            "format": " {load:4} {usage:3}%",
+            "max-length": 10
+        },
+
+        "memory": {
+            "interval": 30,
+            "format": " {:3}%",
+            "max-length": 10
+        },
+
+        "disk#backup": {
+            "format": "󰪺 {percentage_used}%",
+            "path": "/mnt/backup"
+        },
+
+        "disk#data": {
+            "format": "󰆼 {percentage_used}%",
+            "path": "/mnt/data"
+        },
+
+        "network": {
+            "format-wifi": "{essid} ({signalStrength}%) ",
+            "format-ethernet": "{ipaddr}/{cidr} ",
+            "tooltip-format": "{ifname} via {gwaddr} ",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "Disconnected ⚠",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+
+        "tray": {
+            "icon-size": 18,
+        },
+
+        "clock": {
+            "format": "{: %I:%M %p   %d/%m/%Y}"
+        },
+
+        "custom/updates": {
+            "format": "{} Update(s)",
+            "exec": "checkupdates | wc -l",
+            "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+            "interval": 15,
+            "on-click": "alacritty -e update-or-pause.sh"
+        },
+
+    "custom/idleinhibit": {
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "on": "",
+            "off": ""
+        },
+        "on-click": "idle_inhibit.py toggle",
+        "exec": "idle_inhibit.py state",
+        "exec-on-event": false,
+        "interval": "once",
+        "signal": 9,
+    },
+
+    "custom/oncall": {
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "sanitised": "󰏲",
+            "off": "󰷯"
+        },
+        "on-click": "oncall.py toggle",
+        "exec": "oncall.py state",
+        "exec-on-event": false,
+        "interval": "once",
+        "signal": 8,
+    }
+    }
+]

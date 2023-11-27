@@ -1,0 +1,204 @@
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: "Symbols Nerd Font";
+    font-size: 15px;
+    min-height: 15px;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    /* margin-left: 8px; */
+    margin-bottom: 0px;
+    /* opacity: 0.7; */
+}
+
+
+/* #window, #disk, #workspaces, #network, #pulseaudio, #battery, #backlight, #clock, #memory, #cpu, #tray, #custom-launcher, #custom/idleinhibit, #custom-wallpaper, #custom-updates, #custom-media, #mpd, #custom-mpd, #custom-oncall { */
+
+#window, #disk, #workspaces, #network, #pulseaudio, #battery, #backlight, #clock, #memory, #cpu, #tray, #custom-launcher, #custom-idleinhibit, #custom-wallpaper, #custom-updates, #custom-media, #mpd #custom-mpd #custom-oncall {
+    margin-left: 10px;
+    padding-left: 10px;
+    /* margin-right: 10px; */
+    padding-right: 10px;
+}
+window#waybar {
+    background: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+#mpd, #custom-mpd {
+    background: rgba(102,204,153, 0.8);
+    color: rgba(42,92,69, 1);
+}
+
+#mpd.disconnected #custom-mpd.disconnected {
+    background: rgba(245,60,60, 0.8);
+}
+
+#mpd.stopped #custom-mpd.stopped {
+    background: rgba(144,177,177, 0.8);
+}
+
+#mpd.paused #custom-mpd.paused {
+    background: rgba(81,163,122, 0.8);
+}
+
+#workspaces {
+    margin-left: 0px;
+    /* font-size: 20px; */
+    background: rgba(22,19,32, 0.8);
+    /* margin: 0 4px; */
+}
+
+#window {
+    background: rgba(22,19,32, 0.8);
+    color: rgba(181,232,224, 1);
+}
+
+#workspaces button {
+    color: rgba(181,232,224, 1);
+    background: transparent;
+    border-radius: 2px;
+    border-top: 1px solid rgba(22,19,32, 0.8);
+    border-bottom: 1px solid rgba(22,19,32, 0.8);
+}
+
+#workspaces button.occupied {
+    color: rgba(242,143,173, 1);
+    background: transparent;
+    font-size: 4px;
+}
+
+#workspaces button.active {
+    color: rgba(171,233,179, 1);
+    border-top: 1px solid rgba(171,233,179, 0.8);
+    border-bottom: 1px solid rgba(171,233,179, 0.8);
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: rgba(250,227,176, 1);
+    border-color: rgba(232,162,175, 1);
+    color: rgba(232,162,175, 1);
+}
+
+#workspaces button.active:hover {
+    color: rgba(232,162,175, 1);
+}
+
+#network {
+    color: rgba(22,19,32, 1);
+    background: rgba(189,147,249, 0.8);
+}
+
+#pulseaudio {
+    color: rgba(26,24,38, 1);
+    background: rgba(250,227,176, 0.8);
+}
+
+#battery {
+    color: rgba(22,19,32, 1);
+    background: rgba(181,232,224, 0.8);
+}
+
+#battery.charging,
+#battery.plugged {
+    color: rgba(22,19,32, 1);
+    background: rgba(181,232,224, 0.8);
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(181,232,224, 0.8);
+    color: rgba(22,19,32, 1);
+    animation-name: blink;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background: rgba(191,97,106, 0.8);
+        color: rgba(181,232,224, 1);
+    }
+}
+
+#backlight {
+    color: rgba(22,19,32, 1);
+    background: rgba(248,189,150, 0.8);
+}
+
+#clock {
+    color: rgba(22,19,32, 1);
+    background: rgba(66,150,99, 0.95);
+    /* background: rgba(178,34,34, 0.8); */
+
+    /* background: rgba(26,24,38, 0.8); */
+}
+
+#memory {
+    color: rgba(22,19,32, 1);
+    background: rgba(221,182,242, 0.8);
+}
+
+#disk {
+    color: rgba(22,19,32, 1);
+    background: rgba(221,182,242, 0.8);
+}
+
+#cpu {
+    color: rgba(22,19,32, 1);
+    background: rgba(150,205,251, 0.8);
+}
+
+#tray {
+    color: rgba(181,232,224, 1);
+    background: rgba(22,19,32, 0.8);
+}
+
+#custom-launcher {
+    padding-right: 5px;
+    margin-left: 0px;
+    color: rgba(137,220,235, 1);
+    background: rgba(22,19,32, 0.8);
+}
+
+#custom-idleinhibit {
+    /* margin-left: 8px; */
+    margin-right: 8px;
+    /* padding-right: 5px; */
+    color: rgba(22,19,32, 1);
+    background: rgba(242,143,173, 0.8);
+}
+
+#custom-oncall {
+    margin-left: 8px;
+    font-size: 16px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: rgba(22,19,32, 1);
+    background: rgba(242,143,173, 0.8);
+}
+
+#custom-wallpaper {
+    color: rgba(22,19,32, 1);
+    background: rgba(201,203,255, 0.8);
+}
+
+#custom-updates {
+    color: rgba(22,19,32, 1);
+    background: rgba(232,162,175, 0.8);
+}
+
+#custom-media {
+    color: rgba(22,19,32, 1);
+    background: rgba(242,205,205, 0.8);
+}
+
+
