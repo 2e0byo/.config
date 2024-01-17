@@ -1,39 +1,39 @@
 [{
-        "layer": "top",
-        "output": "DP-3",
-        "modules-left": ["custom/launcher", "cpu", "memory", "disk#root", "disk#home", "hyprland/window"],
-        "modules-center": ["wlr/workspaces"],
-        "modules-right": ["custom/mpd", "pulseaudio", "clock", "custom/wallpaper"],
-        "wlr/workspaces": {
-            "disable-scroll": false,
-            "on-click": "activate",
-            "all-outputs": false
-        },
-        "hyprland/window": {
-            "separate-outputs": true
-        },
+    "layer": "top",
+    "output": "DP-3",
+    "modules-left": ["custom/launcher", "cpu", "memory", "disk#root", "disk#home", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["mpd", "pulseaudio", "clock", "custom/wallpaper"],
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "on-click": "activate",
+        "all-outputs": false
+    },
+    "hyprland/window": {
+        "separate-outputs": true
+    },
 
-        "cpu": {
-            "interval": 15,
-            "format": " {load:4} {usage:3}%",
-            "max-length": 10
-        },
+    "cpu": {
+        "interval": 15,
+        "format": " {load:4} {usage:3}%",
+        "max-length": 10
+    },
 
-        "memory": {
-            "interval": 30,
-            "format": " {:3}%",
-            "max-length": 10
-        },
+    "memory": {
+        "interval": 30,
+        "format": " {:3}%",
+        "max-length": 10
+    },
 
-        "disk#root": {
-            "format": "󰋊 {percentage_used}%",
-            "path": "/"
-        },
+    "disk#root": {
+        "format": "󰋊 {percentage_used}%",
+        "path": "/"
+    },
 
-        "disk#home": {
-            "format": "󱂵 {percentage_used}%",
-            "path": "/home"
-        },
+    "disk#home": {
+        "format": "󱂵 {percentage_used}%",
+        "path": "/home"
+    },
 
     "custom/mpd": {
         // "min-length": 35,
@@ -48,159 +48,206 @@
         "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
     },
 
-        "mpd": {
-            "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} – {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
-            "format-disconnected": "Disconnected ",
-            "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-            "unknown-tag": "N/A",
-            "interval": 2,
-            "consume-icons": {
-                "on": " "
-            },
-            "random-icons": {
-                "on": "<span color=\"#f53c3c\"></span> ",
-                "off": " "
-            },
-            "repeat-icons": {
-                "on": " "
-            },
-            "single-icons": {
-                "on": "1 "
-            },
-            "state-icons": {
-                "paused": "",
-                "playing": ""
-            },
-            "tooltip-format": "MPD (connected)",
-            "tooltip-format-disconnected": "MPD (disconnected)",
-            "on-click": "mpc toggle",
-            "on-scroll-up": "mpc prev",
-            "on-scroll-down": "mpc next",
-            "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} – {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
         },
-
-        "pulseaudio": {
-            "scroll-step": 1, // %, can be a float
-            "format": "{volume}% {icon} {format_source}",
-            "format-bluetooth": "{volume}% {icon} {format_source}",
-            "format-bluetooth-muted": " {icon} {format_source}",
-            "format-muted": " {format_source}",
-            "format-source": "{volume}% ",
-            "format-source-muted": "",
-            "format-icons": {
-                "headphone": "",
-                "hands-free": "",
-                "headset": "",
-                "phone": "",
-                "portable": "",
-                "car": "",
-                "default": ["", "", ""]
-            },
-            "on-click": "pavucontrol"
+        "random-icons": {
+            "on": "<span color=\"#f53c3c\"></span> ",
+            "off": " "
         },
-        "custom/launcher": {
-            "format": " ",
-            "on-click": "wofi --show drun",
-            "on-click-right": "killall rofi"
+        "repeat-icons": {
+            "on": " "
         },
-
-        "clock": {
-            "format": "{: %H:%M  %Y-%m-%d}"
+        "single-icons": {
+            "on": "1 "
         },
-
-        "custom/wallpaper": {
-            "format": " ",
-            "on-click": "random_wallpaper.py"
+        "state-icons": {
+            "paused": "",
+            "playing": ""
         },
-    },
-    {
-        "layer": "top",
-        "output": "DP-4",
-        "modules-left": ["cpu", "memory", "disk#backup", "disk#data", "hyprland/window", "tray"],
-        "modules-center": ["wlr/workspaces"],
-        "modules-right": ["custom/updates", "network", "clock", "custom/oncall", "custom/idleinhibit"],
-        "wlr/workspaces": {
-            "disable-scroll": false,
-            "on-click": "activate",
-            "all-outputs": false
-        },
-        "hyprland/window": {
-            "separate-outputs": true
-        },
-
-        "cpu": {
-            "interval": 15,
-            "format": " {load:4} {usage:3}%",
-            "max-length": 10
-        },
-
-        "memory": {
-            "interval": 30,
-            "format": " {:3}%",
-            "max-length": 10
-        },
-
-        "disk#backup": {
-            "format": "󰪺 {percentage_used}%",
-            "path": "/mnt/backup"
-        },
-
-        "disk#data": {
-            "format": "󰆼 {percentage_used}%",
-            "path": "/mnt/data"
-        },
-
-        "network": {
-            "format-wifi": "{essid} ({signalStrength}%) ",
-            "format-ethernet": "{ipaddr}/{cidr} ",
-            "tooltip-format": "{ifname} via {gwaddr} ",
-            "format-linked": "{ifname} (No IP) ",
-            "format-disconnected": "Disconnected ⚠",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}"
-        },
-
-        "tray": {
-            "icon-size": 18,
-        },
-
-        "clock": {
-            "format": "{: %I:%M %p   %d/%m/%Y}"
-        },
-
-        "custom/updates": {
-            "format": "{} Update(s)",
-            "exec": "checkupdates | wc -l",
-            "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-            "interval": 15,
-            "on-click": "alacritty -e update-or-pause.sh"
-        },
-
-    "custom/idleinhibit": {
-        "return-type": "json",
-        "format": "{icon}",
-        "format-icons": {
-            "on": "",
-            "off": ""
-        },
-        "on-click": "idle_inhibit.py toggle",
-        "exec": "idle_inhibit.py state",
-        "exec-on-event": false,
-        "interval": "once",
-        "signal": 9,
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "mpc toggle",
+        "on-scroll-up": "mpc prev",
+        "on-scroll-down": "mpc next",
+        "on-click-right": "xdg-open 'http://localhost:6680/iris/'"
     },
 
-    "custom/oncall": {
-        "return-type": "json",
-        "format": "{icon}",
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
         "format-icons": {
-            "sanitised": "󰏲",
-            "off": "󰷯"
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
         },
-        "on-click": "oncall.py toggle",
-        "exec": "oncall.py state",
-        "exec-on-event": false,
-        "interval": "once",
-        "signal": 8,
-    }
-    }
+        "on-click": "pavucontrol"
+    },
+    "custom/launcher": {
+        "format": " ",
+        "on-click": "wofi --show drun",
+        "on-click-right": "killall rofi"
+    },
+    "clock": {
+        "interval": 60,
+        "format": "{:%H:%M  %d/%m/%Y} ",
+        "format-alt": "{:%H:%M} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "custom/wallpaper": {
+        "format": " ",
+        "on-click": "random_wallpaper.py"
+    },
+},
+ {
+     "layer": "top",
+     "output": "DP-4",
+     "modules-left": ["cpu", "memory", "disk#backup", "disk#data", "hyprland/window", "tray"],
+     "modules-center": ["hyprland/workspaces"],
+     "modules-right": ["custom/updates", "network", "clock", "custom/oncall", "custom/idleinhibit"],
+     "hyprland/workspaces": {
+         "disable-scroll": false,
+         "on-click": "activate",
+         "all-outputs": false
+     },
+     "hyprland/window": {
+         "separate-outputs": true
+     },
+
+     "cpu": {
+         "interval": 15,
+         "format": " {load:4} {usage:3}%",
+         "max-length": 10
+     },
+
+     "memory": {
+         "interval": 30,
+         "format": " {:3}%",
+         "max-length": 10
+     },
+
+     "disk#backup": {
+         "format": "󰪺 {percentage_used}%",
+         "path": "/mnt/backup"
+     },
+
+     "disk#data": {
+         "format": "󰆼 {percentage_used}%",
+         "path": "/mnt/data"
+     },
+
+     "network": {
+         "format-wifi": "{essid} ({signalStrength}%) ",
+         "format-ethernet": "{ipaddr}/{cidr} ",
+         "tooltip-format": "{ifname} via {gwaddr} ",
+         "format-linked": "{ifname} (No IP) ",
+         "format-disconnected": "Disconnected ⚠",
+         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+     },
+
+     "tray": {
+         "icon-size": 18,
+     },
+
+    "clock": {
+        "interval": 60,
+        "format": "{:%H:%M  %d/%m/%Y} ",
+        "format-alt": "{:%H:%M} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+     "custom/updates": {
+         "format": "{} Update(s)",
+         "exec": "checkupdates | wc -l",
+         "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+         "interval": 15,
+         "on-click": "alacritty -e update-or-pause.sh"
+     },
+
+     "custom/idleinhibit": {
+         "return-type": "json",
+         "format": "{icon}",
+         "format-icons": {
+             "on": "",
+             "off": ""
+         },
+         "on-click": "idle_inhibit.py toggle",
+         "exec": "idle_inhibit.py state",
+         "exec-on-event": false,
+         "interval": "once",
+         "signal": 9,
+     },
+
+     "custom/oncall": {
+         "return-type": "json",
+         "format": "{icon}",
+         "format-icons": {
+             "sanitised": "󰏲",
+             "off": "󰷯"
+         },
+         "on-click": "oncall.py toggle",
+         "exec": "oncall.py state",
+         "exec-on-event": false,
+         "interval": "once",
+         "signal": 8,
+     }
+ }
 ]
