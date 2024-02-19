@@ -13,6 +13,7 @@ tryadd ~/.npm-global/bin
 tryadd /opt/microchip/xc8/v2.30/bin
 tryadd ~/.gem/ruby/3.0.0/bin
 tryadd ~/.cargo/bin
+tryadd ~/go/bin
 
 
 # terminal, for tmux
